@@ -1,0 +1,31 @@
+name: CI for LABWORK2
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: action/checkout@v2
+
+      - name: Set up GCC
+        run: sudo apt-get install -y g++
+
+      - name: install Google Test
+        run: |
+          sudo apt-get install -y libgtest-dev
+          sudo apt-get install -y cmake
+
+      - name: Build with Makefile
+        run: make
+
+      - name: Run tests
+        run: ./test-LABWORK2
