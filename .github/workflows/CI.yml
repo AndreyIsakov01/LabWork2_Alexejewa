@@ -27,7 +27,7 @@ jobs:
         run: make
 
   run_tests:
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Build Google Tests
