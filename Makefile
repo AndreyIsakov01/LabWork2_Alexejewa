@@ -35,11 +35,10 @@ $(LIBPROJECT): $(OBJ)
 $(PROJECT): main.o $(LIBPROJECT)
 	$(CXX) -o $@ main.o $(LDXXFLAGS)
 
+test: $(TESTPROJECT)
 
 $(TESTPROJECT): $(LIBPROJECT) $(TEST-OBJ)
 	$(CXX) -o $@ $(TEST-OBJ) $(LDGTESTFLAGS)
-
-test: $(TESTPROJECT)
 
 all: $(PROJECT)
 
