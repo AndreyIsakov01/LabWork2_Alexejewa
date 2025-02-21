@@ -13,25 +13,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Checkout code
+        uses: action/checkout@v2
 
       - name: Set up GCC
-        run: sudo apt-get install -y g++
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y g++
 
       - name: install Google Test
         run: |
-          sudo apt-get install -y libgtest-dev libgmock-dev make
+          sudo apt-get install -y libgtest-dev
+          sudo apt-get install -y cmake
 
       - name: Build with Makefile
         run: make
 
-  run_tests:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Build Google Tests
-      run: make test
-
-    - name: Run Tests
-      run: ./test-LABWORK2
+      - name: Run tests
+        run: ./test-LABWORK2
