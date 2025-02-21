@@ -27,5 +27,12 @@ jobs:
       - name: Build with Makefile
         run: make
 
-      - name: Run tests
-        run: ./test-LABWORK2
+  run_tests:
+    runs_on: ubuntu-latest
+
+    steps:
+    - name: Build Google Tests
+      run: make test
+
+    - name: Run Tests
+      run: ./test-LABWORK2
